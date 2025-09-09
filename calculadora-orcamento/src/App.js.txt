@@ -1,0 +1,22 @@
+import React, { useState } from "react";
+import Input from "./components/Input";
+import ListaDespesas from "./components/ListaDespesas";
+
+function App() {
+  const [despesas, setDespesas] = useState([]);
+
+  const adicionarDespesa = (descricao, valor) => {
+    const novaDespesa = { descricao, valor: parseFloat(valor) };
+    setDespesas([...despesas, novaDespesa]);
+  };
+
+  return (
+    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
+      <h1>💰 Calculadora de Orçamento Pessoal</h1>
+      <Input onAdicionar={adicionarDespesa} />
+      <ListaDespesas despesas={despesas} />
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,21 @@
+import React from "react";
+
+function ListaDespesas({ despesas }) {
+  const total = despesas.reduce((acc, d) => acc + d.valor, 0);
+
+  return (
+    <div>
+      <h2>📋 Minhas Despesas</h2>
+      <ul>
+        {despesas.map((d, index) => (
+          <li key={index}>
+            {d.descricao} - R$ {d.valor.toFixed(2)}
+          </li>
+        ))}
+      </ul>
+      <h3>Total: R$ {total.toFixed(2)}</h3>
+    </div>
+  );
+}
+
+export default ListaDespesas;
